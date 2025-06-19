@@ -102,20 +102,28 @@
     }
   </style>
   <script>
-    function checkLogin(event) {
-        event.preventDefault(); // Verhindert das Standard-Formularverhalten
+  function checkLogin(event) {
+      event.preventDefault();
 
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
+      const users = {
+          "Max.Leone": "hauptverwaltung",
+          "Lisa.Beispiel": "Verwaltung456",
+          "Sandra.Safiulow": "Stadt2025",
+          "Lukas.Erfurt": "Elbflorenz!"
+          // hier kannst du beliebig weitere Namen hinzufügen
+      };
 
-        if (username === "Polizei" && password === "PErfurt123") {
-            // Weiterleitung auf die gewünschte Seite
-            window.location.href = "https://sites.google.com/view/polizei-mitarbeiter/startseite";
-        } else {
-            alert("Falscher Benutzername oder Passwort. Bitte versuche es erneut.");
-        }
-    }
-  </script>
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (users[username] && users[username] === password) {
+          // Login erfolgreich → Weiterleitung
+          window.location.href = "https://sites.google.com/view/polizei-mitarbeiter/startseite";
+      } else {
+          alert("Falscher Benutzername oder Passwort.");
+      }
+  }
+</script>
 </head>
 <body>
 
